@@ -1,17 +1,18 @@
 import { describe, expect, test } from "vitest";
-import { getAPIKey } from "../api/auth";
+import { getAPIKey } from "../api/auth.js";
 
-const person = {
-    isActive: true,
-    age: 32,
-};
+describe("getAPIKey", () => {
+    test("returns API key when header is valid", () => {
+        const headers = {
+            authorization: "ApiKey 12345",
+        } as any;
 
-describe("person", () => {
-    test("person is defined", () => {
-        expect(person).toBeDefined();
+        expect(getAPIKey(headers)).toBe("12345");
     });
 
-    test("is active", () => {
-        expect(person.isActive).toBeTruthy();
+    test("returns null when authorization header is missing", () => {
+        const headers = {} as any;
+
+        expect(getAPIKey(headers)).toBeNull();
     });
 });
