@@ -1,3 +1,4 @@
+
 {
   "compilerOptions": {
     "baseUrl": ".",
@@ -13,3 +14,21 @@
   "include": ["./src/**/*.ts"],
   "exclude": ["node_modules"]
 }
+
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "esnext",
+    "types": [ "node", "vitest" ],
+    "module": "esnext",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "strict": true,
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+  "include": ["./src/**/*.ts"],
+  "exclude": ["node_modules"]
+}
+
